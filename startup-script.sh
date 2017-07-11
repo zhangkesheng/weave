@@ -20,7 +20,7 @@ sleep 3
 [ -z "`docker ps -qf ancestor=weaveworks/weave:${WEAVE_VERSION}`" ] && (
   weave reset --force
   echo "Starting weave..."
-  weave launch-router $WEAVE_ROUTER_CMD || (
+  weave launch $WEAVE_ROUTER_CMD || (
     echo "Fail to launch router..."
     sleep 60
     kill -s TERM $TOP_PID
